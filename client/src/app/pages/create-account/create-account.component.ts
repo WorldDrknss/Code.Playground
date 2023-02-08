@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class CreateAccountComponent implements OnInit {
 
-  constructor(private fb:FormBuilder, public userService:UserService) {}
+  constructor(private fb:FormBuilder, public userService:UserService, private router:Router) {}
 
   ngOnInit(): void {
   }
@@ -20,8 +21,13 @@ export class CreateAccountComponent implements OnInit {
   });
 
   create(){
-    this.userService.createAccount(this.createAccountForm.value).then((res)=>{
+    this.userService.createAccount(this.createAccountForm.value).then((res:any)=>{
       console.log(res);
+      if(!res.error){
+        this.userService.user = res.response;
+        localStorage.setItem('user', JSON.stringify(res.response));
+        this.router.navigate(['/home']);
+      }
     }).catch((err)=>{
       console.log(err);
     });

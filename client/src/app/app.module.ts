@@ -11,15 +11,23 @@ import { LoginComponent } from './pages/login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { CreateAccountComponent } from './pages/create-account/create-account.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule} from '@angular/common/http'
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule} from '@angular/common/http';
+import { HomeComponent } from './pages/home/home.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { MatIconModule} from '@angular/material/icon';
+import { CodingComponent } from './pages/coding/coding.component';
+import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
+import { MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopbarComponent,
     LoginComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    HomeComponent,
+    CodingComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +37,12 @@ import { HttpClientModule} from '@angular/common/http'
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    HttpClientModule
+    FormsModule,
+    HttpClientModule,
+    MatMenuModule,
+    MatIconModule,
+    MonacoEditorModule.forRoot(),
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

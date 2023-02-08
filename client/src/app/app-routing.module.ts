@@ -2,11 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { CreateAccountComponent } from './pages/create-account/create-account.component';
+import { HomeComponent } from './pages/home/home.component';
+import { CodingComponent } from './pages/coding/coding.component';
 
 const routes: Routes = [
   {path:'', pathMatch:'full', redirectTo:'login'},
   {path:'login', component:LoginComponent},
-  {path:'create-account', component:CreateAccountComponent}
+  {path:'create-account', component:CreateAccountComponent},
+  {path:'home', component:HomeComponent},
+  {path:'coding/:fiddleid', component:CodingComponent}
 ];
 
 @NgModule({
